@@ -16,9 +16,21 @@ if Age < 20 or Age > 100:
 
 # Selecting the right column
 elif Type == 'Life' or Type == 'life':
-    cell = ws.cell(row=Row, column=5)
-    print('Your premium is: ' + str(Pay * cell.value))
+    benefit = ws.cell(row=Row, column=5)
+    px_1 = 1 - ws.cell(row=Row, column=3).value
+    px_2 = 1 - ws.cell(row=Row+1, column=3).value
+    px_3 = 1 - ws.cell(row=Row+2, column=3).value
+    px_4 = 1 - ws.cell(row=Row+3, column=3).value
+    premium = Pay * benefit.value / (1 + px_1/1.06 + px_2/1.06**2 + px_3/1.06**3 + px_4/1.06**4)
+    print('Your annual premium is: ', round(premium, 2))
+
 elif Type == 'Annuity' or Type == 'annuity':
-    cell = ws.cell(row=Row, column=4)
-    print('Your premium is: ' + str(Pay * cell.value))
+    benefit = ws.cell(row=Row, column=4)
+    px_1 = 1 - ws.cell(row=Row, column=3).value
+    px_2 = 1 - ws.cell(row=Row + 1, column=3).value
+    px_3 = 1 - ws.cell(row=Row + 2, column=3).value
+    px_4 = 1 - ws.cell(row=Row + 3, column=3).value
+    premium = Pay * benefit.value / (1 + px_1 / 1.06 + px_2 / 1.06 ** 2 + px_3 / 1.06 ** 3 + px_4 / 1.06 ** 4)
+    print('Your annual premium is: ', round(premium, 2))
+
 print('Thank you for using Find My Premium!')
