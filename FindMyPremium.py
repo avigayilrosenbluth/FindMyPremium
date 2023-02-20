@@ -21,7 +21,7 @@ elif Type == 'Life' or Type == 'life':
     px_2 = 1 - ws.cell(row=Row+1, column=3).value
     px_3 = 1 - ws.cell(row=Row+2, column=3).value
     px_4 = 1 - ws.cell(row=Row+3, column=3).value
-    premium = Pay * benefit.value / (1 + px_1/1.06 + px_2/1.06**2 + px_3/1.06**3 + px_4/1.06**4)
+    premium = Pay * benefit.value / (1 + px_1/1.05 + px_2/1.05**2 + px_3/1.05**3 + px_4/1.05**4)
     print('Your annual premium is: ', round(premium, 2))
 
 elif Type == 'Annuity' or Type == 'annuity':
@@ -30,7 +30,7 @@ elif Type == 'Annuity' or Type == 'annuity':
     px_2 = 1 - ws.cell(row=Row + 1, column=3).value
     px_3 = 1 - ws.cell(row=Row + 2, column=3).value
     px_4 = 1 - ws.cell(row=Row + 3, column=3).value
-    premium = Pay * benefit.value / (1 + px_1 / 1.06 + px_2 / 1.06 ** 2 + px_3 / 1.06 ** 3 + px_4 / 1.06 ** 4)
+    premium = Pay * benefit.value / (1 + px_1 / 1.05 + px_2 / 1.05 ** 2 + px_3 / 1.05 ** 3 + px_4 / 1.05 ** 4)
     print('Your annual premium is: ', round(premium, 2))
 
 print('Thank you for using Find My Premium!')
